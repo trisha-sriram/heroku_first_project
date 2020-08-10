@@ -1,5 +1,5 @@
 var express = require('express');
-//var parser = require('body-parser');
+var parser = require('body-parser');
 var app = express();
 //var request = require('superagent')
 
@@ -9,8 +9,8 @@ var port = process.env.PORT || 8080;
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
-//app.use(parser.urlencoded({ extended: true }))
-//app.use(parser.json())
+app.use(parser.urlencoded({ extended: true }))
+app.use(parser.json())
 
 // make express look in the public directory for assets (css/js/img)
 //app.use(express.static(__dirname + '/public'));
@@ -21,8 +21,8 @@ app.use(express.static('public'));
 app.get('/', function(req, res) {
 
     // ejs render automatically looks in the views folder
-    res.render('index');
-    //res.render('pages/app');
+    //res.render('index');
+    res.render('pages/app');
 });
 
 // og about page 
